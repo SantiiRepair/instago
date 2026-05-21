@@ -89,21 +89,21 @@ type Usertag struct {
 
 // Media is a feed post (photo, video, or album) with caption and owner.
 type Media struct {
-	PK           int64     `json:"pk"`
-	ID           string    `json:"id"`
-	Code         string    `json:"code"`
-	MediaType    int       `json:"media_type"`
-	ProductType  string    `json:"product_type"`
-	TakenAt      int64     `json:"taken_at"`
-	ThumbnailURL string    `json:"thumbnail_url"`
-	VideoURL     string    `json:"video_url"`
-	CaptionText  string    `json:"caption_text"`
-	User         UserShort `json:"user"`
-	LikeCount    int       `json:"like_count"`
-	CommentCount int       `json:"comment_count"`
-	Usertags     []Usertag `json:"usertags"`
-	PlayCount    int       `json:"play_count"`
-	CarouselMedia []Media  `json:"carousel_media,omitempty"`
+	PK            int64     `json:"pk"`
+	ID            string    `json:"id"`
+	Code          string    `json:"code"`
+	MediaType     int       `json:"media_type"`
+	ProductType   string    `json:"product_type"`
+	TakenAt       int64     `json:"taken_at"`
+	ThumbnailURL  string    `json:"thumbnail_url"`
+	VideoURL      string    `json:"video_url"`
+	CaptionText   string    `json:"caption_text"`
+	User          UserShort `json:"user"`
+	LikeCount     int       `json:"like_count"`
+	CommentCount  int       `json:"comment_count"`
+	Usertags      []Usertag `json:"usertags"`
+	PlayCount     int       `json:"play_count"`
+	CarouselMedia []Media   `json:"carousel_media,omitempty"`
 }
 
 // Comment is a comment on a media item.
@@ -137,17 +137,17 @@ type StoryHashtag struct {
 
 // StoryLocation is a location sticker on a story (private v1).
 type StoryLocation struct {
-	LocationPK   int64  `json:"location_pk"`
-	Name         string `json:"name"`
-	Address      string `json:"address"`
-	City         string `json:"city"`
-	ExternalID   string `json:"external_id"`
-	ExternalSrc  string `json:"external_id_source"`
-	X            float64
-	Y            float64
-	Width        float64
-	Height       float64
-	Rotate       float64
+	LocationPK  int64  `json:"location_pk"`
+	Name        string `json:"name"`
+	Address     string `json:"address"`
+	City        string `json:"city"`
+	ExternalID  string `json:"external_id"`
+	ExternalSrc string `json:"external_id_source"`
+	X           float64
+	Y           float64
+	Width       float64
+	Height      float64
+	Rotate      float64
 }
 
 // Story is a single story item (image or video) with owner metadata.
@@ -168,14 +168,14 @@ type Story struct {
 
 // DirectThread is a DM thread (inbox or full fetch).
 type DirectThread struct {
-	PK           string           `json:"pk"`
-	ID           string           `json:"id"`
-	Users        []UserShort      `json:"users"`
-	Messages     []DirectMessage  `json:"messages"`
-	Title        string           `json:"thread_title"`
-	ThreadType   string           `json:"thread_type"`
-	Inviter      *UserShort       `json:"inviter,omitempty"`
-	LastActivity int64            `json:"last_activity_at"`
+	PK           string          `json:"pk"`
+	ID           string          `json:"id"`
+	Users        []UserShort     `json:"users"`
+	Messages     []DirectMessage `json:"messages"`
+	Title        string          `json:"thread_title"`
+	ThreadType   string          `json:"thread_type"`
+	Inviter      *UserShort      `json:"inviter,omitempty"`
+	LastActivity int64           `json:"last_activity_at"`
 }
 
 // DirectMessage is one item in a DM thread.
@@ -194,30 +194,30 @@ type DirectMessage struct {
 
 // Friendship describes relationship between the logged-in user and another user.
 type Friendship struct {
-	UserID         int64 `json:"user_id"`
-	Following      bool  `json:"following"`
-	FollowedBy     bool  `json:"followed_by"`
-	IncomingRequest bool `json:"incoming_request"`
-	OutgoingRequest bool `json:"outgoing_request"`
-	IsPrivate      bool  `json:"is_private"`
-	IsRestricted   bool  `json:"is_restricted"`
-	Blocking       bool  `json:"blocking"`
+	UserID          int64 `json:"user_id"`
+	Following       bool  `json:"following"`
+	FollowedBy      bool  `json:"followed_by"`
+	IncomingRequest bool  `json:"incoming_request"`
+	OutgoingRequest bool  `json:"outgoing_request"`
+	IsPrivate       bool  `json:"is_private"`
+	IsRestricted    bool  `json:"is_restricted"`
+	Blocking        bool  `json:"blocking"`
 }
 
 // MediaCommentsPage holds one page of comments plus cursors for the same media.
 type MediaCommentsPage struct {
-	Comments      []Comment `json:"comments"`
-	HasMore       bool      `json:"has_more"`
-	NextMaxID     string    `json:"next_max_id"`
-	NextMinID     string    `json:"next_min_id"`
-	CommentCount  int       `json:"comment_count"`
+	Comments     []Comment `json:"comments"`
+	HasMore      bool      `json:"has_more"`
+	NextMaxID    string    `json:"next_max_id"`
+	NextMinID    string    `json:"next_min_id"`
+	CommentCount int       `json:"comment_count"`
 }
 
 // VideoUploadMeta is required metadata for direct video upload when file probing is not used.
 type VideoUploadMeta struct {
-	WidthPx      int
-	HeightPx     int
-	DurationMS   int
+	WidthPx    int
+	HeightPx   int
+	DurationMS int
 }
 
 // Hashtag is a tag search result with optional media count and icon URL.
