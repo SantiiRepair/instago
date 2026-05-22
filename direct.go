@@ -49,9 +49,10 @@ func (c *Client) DirectInboxChunk(opt DirectInboxOptions) ([]DirectThread, strin
 	if opt.SelectedFilter != "" {
 		params.Set("selected_filter", opt.SelectedFilter)
 	}
-	if opt.Box == "general" {
+	switch opt.Box {
+	case "general":
 		params.Set("folder", "1")
-	} else if opt.Box == "primary" {
+	case "primary":
 		params.Set("folder", "0")
 	}
 	if opt.Cursor != "" {
@@ -202,17 +203,17 @@ func (c *Client) DirectSendText(text string, userIDs []int64, threadIDs []int64)
 	token := c.generateUUID("", "")
 	method := "text"
 	kw := map[string]any{
-		"action":               "send_item",
+		"action":                 "send_item",
 		"is_x_transport_forward": "false",
-		"send_silently":        "false",
-		"is_shh_mode":          "0",
-		"send_attribution":     "message_button",
-		"client_context":       token,
-		"device_id":            c.uuids.AndroidDeviceID,
-		"mutation_token":       token,
-		"btt_dual_send":        "false",
-		"nav_chain":            "1qT:feed_timeline:1,1qT:feed_timeline:2,1qT:feed_timeline:3,7Az:direct_inbox:4,7Az:direct_inbox:5,5rG:direct_thread:7",
-		"is_ae_dual_send":      "false",
+		"send_silently":          "false",
+		"is_shh_mode":            "0",
+		"send_attribution":       "message_button",
+		"client_context":         token,
+		"device_id":              c.uuids.AndroidDeviceID,
+		"mutation_token":         token,
+		"btt_dual_send":          "false",
+		"nav_chain":              "1qT:feed_timeline:1,1qT:feed_timeline:2,1qT:feed_timeline:3,7Az:direct_inbox:4,7Az:direct_inbox:5,5rG:direct_thread:7",
+		"is_ae_dual_send":        "false",
 		"offline_threading_id":   token,
 	}
 	if directHTTPURL.MatchString(text) {
